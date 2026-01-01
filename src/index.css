@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Brand - AlphaSupps Lime */
+    --alpha-lime: 75 100% 50%;
+    --alpha-dark: 220 20% 8%;
+    --alpha-gray: 220 10% 15%;
+
+    /* Background & Foreground */
+    --background: 220 20% 6%;
+    --foreground: 0 0% 98%;
+
+    /* Card */
+    --card: 220 15% 10%;
+    --card-foreground: 0 0% 98%;
+
+    /* Popover */
+    --popover: 220 15% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Lime accent */
+    --primary: 75 100% 50%;
+    --primary-foreground: 220 20% 8%;
+
+    /* Secondary */
+    --secondary: 220 10% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted */
+    --muted: 220 10% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    /* Accent */
+    --accent: 75 80% 45%;
+    --accent-foreground: 220 20% 8%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border & Input */
+    --border: 220 10% 20%;
+    --input: 220 10% 18%;
+    --ring: 75 100% 50%;
+
+    /* Energy Levels */
+    --energy-high: 75 100% 50%;
+    --energy-medium: 45 100% 50%;
+    --energy-low: 0 84% 60%;
+
+    /* Status Colors */
+    --status-success: 142 76% 45%;
+    --status-warning: 45 100% 50%;
+    --status-error: 0 84% 60%;
+    --status-info: 200 100% 50%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glow {
+    box-shadow: 0 0 30px hsl(var(--alpha-lime) / 0.2);
+  }
+
+  .glow-strong {
+    box-shadow: 0 0 50px hsl(var(--alpha-lime) / 0.4);
+  }
+
+  .gradient-lime {
+    background: linear-gradient(135deg, hsl(var(--alpha-lime)) 0%, hsl(75 80% 40%) 100%);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(220 20% 4%) 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--alpha-lime)) 0%, hsl(45 100% 50%) 100%);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
